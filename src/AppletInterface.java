@@ -50,7 +50,7 @@ public class AppletInterface extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 255, 255));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gray", "Dark Gray", "Cyan", "Black" }));
-        jComboBox1.setSelectedIndex(1);
+        jComboBox1.setSelectedIndex(2);
         jComboBox1.setToolTipText("Gray");
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
