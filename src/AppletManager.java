@@ -142,6 +142,11 @@ public class AppletManager extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(244, 244, 219));
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton5.setText("Raiz X");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton5);
 
         jButton6.setBackground(new java.awt.Color(244, 244, 219));
@@ -204,23 +209,28 @@ public class AppletManager extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) + Integer.parseInt(jTextArea2.getText())));
+        jTextArea3.setText("" + (Double.parseDouble(jTextArea1.getText()) + Double.parseDouble(jTextArea2.getText())));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) - Integer.parseInt(jTextArea2.getText())));
+        jTextArea3.setText("" + (Double.parseDouble(jTextArea1.getText()) - Double.parseDouble(jTextArea2.getText())));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) * Integer.parseInt(jTextArea2.getText())));
+       jTextArea3.setText("" + (Double.parseDouble(jTextArea1.getText()) * Double.parseDouble(jTextArea2.getText())));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) / Integer.parseInt(jTextArea2.getText())));
+        jTextArea3.setText("" + (Double.parseDouble(jTextArea1.getText()) / Double.parseDouble(jTextArea2.getText())));
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jTextArea3.setText("" + (Math.pow(Double.parseDouble(jTextArea1.getText()), 1.0 / Double.parseDouble(jTextArea2.getText()))));
+    }//GEN-LAST:event_jButton5ActionPerformed
                                 
 
 
