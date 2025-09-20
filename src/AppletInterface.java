@@ -4,8 +4,8 @@ import javax.swing.*;
 public class AppletInterface extends javax.swing.JFrame {
 
     public AppletInterface() {
-        initComponents();   // 🔹 Primero inicializas todos los componentes
-        init();             // 🔹 Luego agregas listeners y configuración
+        initComponents();  
+        init();            
     }
 
     // Main method → entry point to run in JDK 25
@@ -27,7 +27,7 @@ public class AppletInterface extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        // 🔹 Ahora jComboBox1 ya NO es null
+        
         jComboBox1.addActionListener((var e) -> {
             String color = (String) jComboBox1.getSelectedItem();
             switch (color) {

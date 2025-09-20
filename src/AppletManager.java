@@ -4,14 +4,14 @@ import javax.swing.*;
 public class AppletManager extends javax.swing.JFrame {
 
     public AppletManager() {
-        initComponents();   // 🔹 Primero inicializas todos los componentes
-        init();             // 🔹 Luego agregas listeners y configuración
+        initComponents();   
+        init();             
     }
 
     // Main method → entry point to run in JDK 25
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new AppletInterface().setVisible(true);
+            new AppletManager().setVisible(true);
         });
     }
 
@@ -40,11 +40,8 @@ public class AppletManager extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -61,6 +58,7 @@ public class AppletManager extends javax.swing.JFrame {
 
         jLabel1.setText("Subprograma");
 
+        jPanel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -75,30 +73,34 @@ public class AppletManager extends javax.swing.JFrame {
         jLabel4.setText("RESULTADO");
         jPanel3.add(jLabel4);
 
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel1.setLayout(new java.awt.GridLayout());
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane1);
+        jTextArea1.setToolTipText("");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jTextArea1);
 
         jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jTextArea2.setToolTipText("");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTextArea2.setName(""); // NOI18N
+        jPanel1.add(jTextArea2);
 
-        jPanel1.add(jScrollPane2);
-
+        jTextArea3.setEditable(false);
         jTextArea3.setBackground(new java.awt.Color(244, 244, 219));
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jPanel1.add(jScrollPane3);
+        jTextArea3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jTextArea3);
 
         jPanel4.setLayout(new java.awt.GridLayout(3, 3));
 
         jButton1.setBackground(new java.awt.Color(244, 244, 219));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,34 +110,42 @@ public class AppletManager extends javax.swing.JFrame {
         jPanel4.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(244, 244, 219));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton2.setText("-");
         jPanel4.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(244, 244, 219));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton3.setText("*");
         jPanel4.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(244, 244, 219));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton4.setText("/");
         jPanel4.add(jButton4);
 
         jButton5.setBackground(new java.awt.Color(244, 244, 219));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton5.setText("Raiz X");
         jPanel4.add(jButton5);
 
         jButton6.setBackground(new java.awt.Color(244, 244, 219));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton6.setText("Raiz Y");
         jPanel4.add(jButton6);
 
         jButton7.setBackground(new java.awt.Color(244, 244, 219));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton7.setText("X a la Y");
         jPanel4.add(jButton7);
 
         jButton8.setBackground(new java.awt.Color(244, 244, 219));
+        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton8.setText("Y a la X");
         jPanel4.add(jButton8);
 
         jButton9.setBackground(new java.awt.Color(244, 244, 219));
+        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton9.setText("X mod Y");
         jPanel4.add(jButton9);
 
@@ -201,9 +211,6 @@ public class AppletManager extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
