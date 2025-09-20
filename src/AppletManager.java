@@ -14,7 +14,7 @@ public class AppletManager extends javax.swing.JFrame {
             new AppletManager().setVisible(true);
         });
     }
-
+        
     public void init() {
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -112,16 +112,31 @@ public class AppletManager extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(244, 244, 219));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton2.setText("-");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(244, 244, 219));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton3.setText("*");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(244, 244, 219));
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton4.setText("/");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton4);
 
         jButton5.setBackground(new java.awt.Color(244, 244, 219));
@@ -189,7 +204,24 @@ public class AppletManager extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) + Integer.parseInt(jTextArea2.getText())));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) - Integer.parseInt(jTextArea2.getText())));
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) * Integer.parseInt(jTextArea2.getText())));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        jTextArea3.setText("" + (Integer.parseInt(jTextArea1.getText()) / Integer.parseInt(jTextArea2.getText())));
+    }//GEN-LAST:event_jButton4ActionPerformed
+                                
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
