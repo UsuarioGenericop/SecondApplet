@@ -1,9 +1,9 @@
 import java.awt.Color;
 import javax.swing.*;
 
-public class NewJApplet extends javax.swing.JFrame {
+public class AppletInterface extends javax.swing.JFrame {
 
-    public NewJApplet() {
+    public AppletInterface() {
         initComponents();   // 🔹 Primero inicializas todos los componentes
         init();             // 🔹 Luego agregas listeners y configuración
     }
@@ -11,7 +11,7 @@ public class NewJApplet extends javax.swing.JFrame {
     // Main method → entry point to run in JDK 25
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new NewJApplet().setVisible(true);
+            new AppletInterface().setVisible(true);
         });
     }
 
@@ -34,7 +34,7 @@ public class NewJApplet extends javax.swing.JFrame {
                 case "Gray" -> jPanel1.setBackground(Color.GRAY);
                 case "Dark Gray" -> jPanel1.setBackground(Color.DARK_GRAY);
                 case "Cyan" -> jPanel1.setBackground(Color.CYAN);
-                case "Amarillo" -> jPanel1.setBackground(Color.BLACK);
+                case "Black" -> jPanel1.setBackground(Color.BLACK);
                 default -> jPanel1.setBackground(Color.WHITE);
             }
         });
@@ -50,6 +50,7 @@ public class NewJApplet extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 255, 255));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gray", "Dark Gray", "Cyan", "Black" }));
+        jComboBox1.setSelectedIndex(1);
         jComboBox1.setToolTipText("Gray");
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
