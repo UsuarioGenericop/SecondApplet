@@ -272,8 +272,6 @@ public class AppletManager extends javax.swing.JFrame {
         jTextArea3.setText("" + (Double.parseDouble(jTextArea1.getText()) % Double.parseDouble(jTextArea2.getText())));
     }//GEN-LAST:event_jButton9ActionPerformed
                                 
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
