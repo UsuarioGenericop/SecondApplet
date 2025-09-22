@@ -483,41 +483,110 @@ public class AppletCalculator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    // Method to evaluate mathematical expressions
+    // Method to evaluate mathematical expressions with proper precedence (PEMDAS)
     private double evaluateExpression(String expression) {
-        // Simple expression evaluator that handles basic operations
-        // This is a basic implementation - for production use, consider using a proper expression parser
+        // Remove spaces
+        expression = expression.replaceAll("\\s+", "");
         
-        // Remove spaces and split by operators
-        String[] tokens = expression.replaceAll("\\s+", "").split("(?<=[+\\-*/])|(?=[+\\-*/])");
+        // Convert to postfix notation using Shunting Yard algorithm
+        java.util.List<String> postfix = infixToPostfix(expression);
         
-        if (tokens.length < 3) {
-            return Double.parseDouble(tokens[0]);
+        // Evaluate postfix expression
+        return evaluatePostfix(postfix);
+    }
+    
+    // Convert infix expression to postfix notation (Shunting Yard algorithm)
+    private java.util.List<String> infixToPostfix(String expression) {
+        java.util.List<String> output = new java.util.ArrayList<>();
+        java.util.Stack<String> operators = new java.util.Stack<>();
+        
+        int i = 0;
+        while (i < expression.length()) {
+            char c = expression.charAt(i);
+            
+            if (Character.isDigit(c) || c == '.') {
+                // Read complete number
+                StringBuilder num = new StringBuilder();
+                while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
+                    num.append(expression.charAt(i));
+                    i++;
+                }
+                output.add(num.toString());
+            } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+                // Handle operator precedence
+                while (!operators.isEmpty() && 
+                       getPrecedence(operators.peek()) >= getPrecedence(String.valueOf(c))) {
+                    output.add(operators.pop());
+                }
+                operators.push(String.valueOf(c));
+                i++;
+            } else {
+                i++; // Skip unknown characters
+            }
         }
         
-        double result = Double.parseDouble(tokens[0]);
+        // Pop remaining operators
+        while (!operators.isEmpty()) {
+            output.add(operators.pop());
+        }
         
-        for (int i = 1; i < tokens.length; i += 2) {
-            if (i + 1 < tokens.length) {
-                String operator = tokens[i];
-                double operand = Double.parseDouble(tokens[i + 1]);
+        return output;
+    }
+    
+    // Get operator precedence (higher number = higher precedence)
+    private int getPrecedence(String operator) {
+        return switch (operator) {
+            case "+", "-" -> 1;
+            case "*", "/" -> 2;
+            default -> 0;
+        };
+    }
+    
+    // Evaluate postfix expression
+    private double evaluatePostfix(java.util.List<String> postfix) {
+        java.util.Stack<Double> stack = new java.util.Stack<>();
+        
+        for (String token : postfix) {
+            if (isNumber(token)) {
+                stack.push(Double.parseDouble(token));
+            } else {
+                if (stack.size() < 2) {
+                    throw new IllegalArgumentException("Invalid expression");
+                }
                 
-                switch (operator) {
-                    case "+" -> result += operand;
-                    case "-" -> result -= operand;
-                    case "*" -> result *= operand;
+                double b = stack.pop();
+                double a = stack.pop();
+                
+                switch (token) {
+                    case "+" -> stack.push(a + b);
+                    case "-" -> stack.push(a - b);
+                    case "*" -> stack.push(a * b);
                     case "/" -> {
-                        if (operand == 0) {
+                        if (b == 0) {
                             throw new ArithmeticException("Division by zero");
                         }
-                        result /= operand;
+                        stack.push(a / b);
                     }
-                    default -> throw new IllegalArgumentException("Unknown operator: " + operator);
+                    default -> throw new IllegalArgumentException("Unknown operator: " + token);
                 }
             }
         }
         
-        return result;
+        if (stack.size() != 1) {
+            throw new IllegalArgumentException("Invalid expression");
+        }
+        
+        return stack.pop();
+    }
+    
+    // Check if string is a number
+    private boolean isNumber(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
