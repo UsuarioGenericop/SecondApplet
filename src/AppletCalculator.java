@@ -451,7 +451,10 @@ public class AppletCalculator extends javax.swing.JFrame {
 
     private void jButtonDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDotActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText() + ".");
+        String currentText = jTextField1.getText();
+    if (!currentText.contains(".")) {
+        jTextField1.setText(currentText + ".");
+    }
     }//GEN-LAST:event_jButtonDotActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
