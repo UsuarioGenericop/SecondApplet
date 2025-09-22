@@ -27,7 +27,9 @@ public class AppletCalculator extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-    
+    private double firstOperand = 0;
+    private String operator = "";
+    double result = 0;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -141,11 +143,21 @@ public class AppletCalculator extends javax.swing.JFrame {
         jButton9.setBackground(new java.awt.Color(244, 244, 219));
         jButton9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton9.setText("9");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton9);
 
         jButtonDot.setBackground(new java.awt.Color(244, 244, 219));
         jButtonDot.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonDot.setText(".");
+        jButtonDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDotActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButtonDot);
 
         jButton10.setBackground(new java.awt.Color(244, 244, 219));
@@ -161,36 +173,71 @@ public class AppletCalculator extends javax.swing.JFrame {
         jButton12.setBackground(new java.awt.Color(244, 244, 219));
         jButton12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton12.setText("CE");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton12);
 
         jButton13.setBackground(new java.awt.Color(244, 244, 219));
         jButton13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton13.setText("+");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton13);
 
         jButton14.setBackground(new java.awt.Color(244, 244, 219));
         jButton14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton14.setText("-");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton14);
 
         jButton15.setBackground(new java.awt.Color(244, 244, 219));
         jButton15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton15.setText("=");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton15);
 
         jButton16.setBackground(new java.awt.Color(244, 244, 219));
         jButton16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton16.setText("*");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton16);
 
         jButton17.setBackground(new java.awt.Color(244, 244, 219));
         jButton17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton17.setText("/");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton17);
 
         jButton18.setBackground(new java.awt.Color(244, 244, 219));
         jButton18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton18.setText("C");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton18);
 
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -200,14 +247,12 @@ public class AppletCalculator extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("jLabel2");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel4.add(jLabel2, java.awt.BorderLayout.LINE_END);
 
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        jTextField1.setText("423423423432");
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,8 +265,8 @@ public class AppletCalculator extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +290,12 @@ public class AppletCalculator extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");
+        }
         jTextField1.setText(jTextField1.getText() + "2");
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -254,43 +305,164 @@ public class AppletCalculator extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "1");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "3");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "4");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "5");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "6");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "7");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText() + "9");
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
+        jTextField1.setText(jTextField1.getText() + "8");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
         jTextField1.setText(jTextField1.getText() + "0");
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    firstOperand = Double.parseDouble(jTextField1.getText());
+    operator = "+";
+    jLabel2.setText("" + firstOperand + operator);
+    jTextField1.setText("");
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    double secondOperand = Double.parseDouble(jTextField1.getText());
+    switch (operator) {
+        case "+" -> result = firstOperand + secondOperand;
+        case "-" -> result = firstOperand - secondOperand;
+        case "*" -> result = firstOperand * secondOperand;
+        case "/" -> result = firstOperand / secondOperand;
+        default -> result = secondOperand;
+    }
+    System.out.println(secondOperand);
+    jTextField1.setText(String.valueOf(result));
+    if (result == secondOperand && firstOperand != 1){
+    jLabel2.setText("" + result);}
+    else {jLabel2.setText("" + firstOperand + operator + secondOperand);}
+    
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        firstOperand = Double.parseDouble(jTextField1.getText());
+    operator = "-";
+    jLabel2.setText("" + firstOperand + operator);
+    jTextField1.setText("");
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        firstOperand = Double.parseDouble(jTextField1.getText());
+    operator = "*";
+    jLabel2.setText("" + firstOperand + operator);
+    jTextField1.setText("");
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        firstOperand = Double.parseDouble(jTextField1.getText());
+    operator = "/";
+    jLabel2.setText("" + firstOperand + operator);
+    jTextField1.setText("");
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+     String currentText = jTextField1.getText();
+    if (currentText != null && currentText.length() > 0) {
+        jTextField1.setText(currentText.substring(0, currentText.length() - 1));
+    }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButtonDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDotActionPerformed
+        // TODO add your handling code here:
+        jTextField1.setText(jTextField1.getText() + ".");
+    }//GEN-LAST:event_jButtonDotActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        if(jTextField1.getText().equals(String.valueOf(result))){
+        jTextField1.setText("");
+        firstOperand = 0;
+        operator = "";
+        jLabel2.setText("");}
+        jTextField1.setText(jTextField1.getText() + "9");
+    }//GEN-LAST:event_jButton9ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
